@@ -44,6 +44,18 @@ def def_shoose_command(dict_command: dict):
         print('Введите число!')
         return False, 0
     
+
+def def_enter_str(text: str):
+    while True:
+        enter_text = input(text)
+        if enter_text =='':
+            print('Поле не может быть пустым\n')
+        else:
+            break
+
+    return enter_text
+
+
 def def_enter_date():
     # ввод и проверка года издания
     while True:
@@ -79,8 +91,8 @@ def def_find_command(command: int, book_json: dict):
 def def_add_book(book_json: dict):
     # функция добавления книги
     print('\nКоманда добавления книги')
-    title = input('Введите наименование \n')
-    author = input('Введите автора \n')
+    title = def_enter_str('Введите наименование \n')
+    author = def_enter_str('Введите автора \n')
     year = def_enter_date()
     
     # определяю ID по последнему значению +1
@@ -145,9 +157,9 @@ def def_find_book(book_json: dict):
     if command == 0:
         return
     if command == 1:
-        text_find = input('Введите наименование книги\n')
+        text_find = def_enter_str('Введите наименование книги\n')
     elif command == 2:
-        text_find = input('Введите автора книги\n')
+        text_find = def_enter_str('Введите автора книги\n')
     elif command == 3:
         text_find = def_enter_date()
 
